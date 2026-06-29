@@ -12,7 +12,7 @@
       此项目使用PlatformIO编写，ArduinoIDE无法直接使用
       需用VS code+PlatformIO扩展打开
 
-详情见根目录下的readme.txt
+详情见根目录下的readme.md
 */
 
 #include <Arduino.h>
@@ -34,7 +34,7 @@
 int Now = 0;
 int Status = 0;
 int Run_time = 0;
-//初始化计时器变量
+// 初始化计时器变量
 
 unsigned char list[5] = {D_1, D_2, D_3, D_4, D_5};
 
@@ -75,15 +75,15 @@ void setup()
 void loop()
 {
   Weather_get();
-  //爬取天气
+  // 爬取天气
   display(0x27, 16, 2);
-  //在LCD1602上显示天气及时间
+  // 在LCD1602上显示天气及时间
   delay(5000);
   Now = millis();
-  if (Now - Run_time >= 20000)  //设置息屏时间
+  if (Now - Run_time >= 20000) // 设置息屏时间
   {
     Nolight();
-    //执行关闭背光函数
+    // 执行关闭背光函数
     Serial.println("NoBackLight");
     int R1 = 0;
     while (true)
